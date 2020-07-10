@@ -1,6 +1,7 @@
 package main.reddit.controller;
 
 import lombok.AllArgsConstructor;
+import main.reddit.dto.AuthenticationResponse;
 import main.reddit.dto.LoginRequest;
 import main.reddit.dto.RegisterRequest;
 import main.reddit.service.AuthService;
@@ -27,8 +28,8 @@ public class AuthController {
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest){
-        return null;
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
+        return authService.login(loginRequest);
     }
 
     @GetMapping
